@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ваш результат:</h1>
+    <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: {{ (right / total) * 100 }}%"></div>
+    </div>
+    <div class="progress-text">{{ right }}/{{ total }}</div>
+    <a href="{{url_for('index')}}" class="button">На головну</a>
+</body>
+</html>

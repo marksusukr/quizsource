@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Вікторина</title>
+</head>
+<body>
+    <h2>Оберіть вікторину:</h2>
+    <div class="quiz-container">
+        {% for id, name, image_url in q_list %}
+        <div class="quiz-card">
+            <h3>{{ name }}</h3>
+            <img src="{{ image_url }}" alt="{{ name }}" class="quiz-image">
+            <form method="post" action="/">
+                <input type="hidden" name="quiz" value="{{ id }}">
+                <button type="submit" class="start-button">Почати тестування</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

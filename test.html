@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Вікторина</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% if question %}
+        <h1>{{ question }}</h1>
+    {% endif %}
+    <form method="post" action="test">
+        <input type="hidden" name="q_id" value="{{ quest_id }}">
+        <div class="outer-div">
+            {% for answer in answers_list %}
+                <button type="submit" name="ans_text" value="{{ answer }}" class="answer-button">{{ answer }}</button>
+            {% endfor %}
+        </div>
+    </form>
+</body>
+</html>
